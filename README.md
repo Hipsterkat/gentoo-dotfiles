@@ -101,7 +101,7 @@ MAKEOPTS="-j4"
 
 LC_MESSAGES=C
 ```
-# update @world
+### update @world
 ```
 # emerge-webrsync
 # emerge -avuND @world
