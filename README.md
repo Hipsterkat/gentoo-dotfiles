@@ -75,6 +75,7 @@ Available targets for the LANG variable:
 $ eselect locale set 4
 $ env-update
 $ source /etc/profile
+$ cat LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 ## portage 
 ```
