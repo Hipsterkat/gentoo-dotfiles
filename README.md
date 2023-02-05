@@ -1,8 +1,8 @@
 # gentoo-dotfiles
 My gentoo configuration per individual hosts + shared.
 ### host
-1) main: rogstrix GL503GE
-2) second: thinkpadT420
+1) main: ROGstrix GL503GE
+2) second: Thinkpad T420
 
 ## reference guides
 [base](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base)
