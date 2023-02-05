@@ -54,9 +54,7 @@ chroot
 # chroot /mnt/gentoo /bin/bash
 # source /etc/profile
 ```
-# install
-```
-```
+
 ## timezone & locale
 ```
 $ echo "Europe/Bucharest" > /etc/timezone
@@ -102,6 +100,11 @@ EMERGE_DEFAULT_OPS="--jobs 5"
 MAKEOPTS="-j4"
 
 LC_MESSAGES=C
+```
+# update @world
+```
+# emerge-webrsync
+# emerge -avuND @world
 ```
 ## base packages
 ```
