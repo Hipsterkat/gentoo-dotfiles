@@ -5,8 +5,24 @@ second: thinkpadT420
 
 My gentoo configuration per individual hosts + shared.
 
+## reference guides
+
 ## preparation
 ## partition
+```
+/dev/sda1 /mnt/gentoo/boot/efi
+/dev/sda2 swap
+/dev/sda3 /mnt/gentoo
+
+mkfs.fat -F 32 /dev/sda1
+mkswap /dev/sda2
+mkfs.ext4 /dev/sda3
+```
+## stage3
+```
+# wget [link](https://www.gentoo.org/downloads/)
+# tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
+```
 ## fstab
 ```
 # UUID=9e257225-61a2-460d-9c28-6620d043aaea
@@ -21,11 +37,26 @@ tracefs             	/sys/kernel/tracing	tracefs   	rw,nosuid,nodev,noexec	0 0
 /dev/sda2           	none      	swap      	defaults  	0 0
 
 ```
-## mount
-## stage3
-## chroot
+## mount & chroot
+```
+# mount --types proc /proc /mnt/gentoo/proc & mount --rbind /sys /mnt/gentoo/sys & mount --rbind /sys /mnt/gentoo/sys 
+& mount --make-rslave /mnt/gentoo/sys & mount --rbind /dev /mnt/gentoo/dev & mount --make-rslave /mnt/gentoo/dev &
+mount --bind /run /mnt/gentoo/run & mount --make-slave /mnt/gentoo/run 
+```
+optional, incase it's being installed in a live enviorment
+```
+# test -L /dev/shm && rm /dev/shm && mkdir /dev/shm & mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm 
+& chmod 1777 /dev/shm /run/shm
+```
+finally:
+```
+# chroot /mnt/gentoo /bin/bash
+# source /etc/profile
+```
 # install
 ## timezone & locale
+```
+```
 ## portage 
 ```
 COMMON_FLAGS="-march=native -O2 -pipe"
@@ -36,6 +67,7 @@ FFLAGS="${COMMON_FLAGS}"
 
 USE="X wayland -cups gnome -kde -dvd -dvdr -systemd elogind dbus gtk3 pulseaudio alsa"
 PYTHON_TARGETS="python3_6 python3_7 python3_8 python3_9 python3_10"
+FEATURES="parallel-install unmerge-orphans"
 
 VIDEO_CARDS="intel i915"
 CHOST="x86_64-pc-linux-gnu"
