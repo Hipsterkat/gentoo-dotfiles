@@ -1,5 +1,8 @@
 # gentoo-dotfiles
-### host : ThinkpadT420
+### host
+main: rogstrix GL503GE
+second: thinkpadT420
+
 My gentoo configuration per individual hosts + shared.
 
 ## preparation
