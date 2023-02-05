@@ -27,6 +27,28 @@ tracefs             	/sys/kernel/tracing	tracefs   	rw,nosuid,nodev,noexec	0 0
 # install
 ## timezone & locale
 ## portage 
+```
+COMMON_FLAGS="-march=native -O2 -pipe"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+FCFLAGS="${COMMON_FLAGS}"
+FFLAGS="${COMMON_FLAGS}"
+USE="X wayland -cups gnome -kde -dvd -dvdr -systemd elogind dbus gtk3 pulseaudio alsa"
+PYTHON_TARGETS="python3_6 python3_7 python3_8 python3_9 python3_10"
+
+VIDEO_CARDS="intel i915"
+CHOST="x86_64-pc-linux-gnu"
+
+GENTOO_MIRRORS="https://mirror.leaseweb.com/gentoo/"
+
+ACCEPT_KEYWORDS="~amd64"
+ACCEPT_LICENSE="-* @FREE"
+
+EMERGE_DEFAULT_OPS="--jobs 5"
+MAKEOPTS="-j4"
+
+LC_MESSAGES=C
+```
 ## base packages
 ## tools
 ![300px-Larry-nefarius-v2 svg](https://user-images.githubusercontent.com/92778316/216841517-fdccdf1d-1e0f-4082-925f-855a9b737d1b.png)
