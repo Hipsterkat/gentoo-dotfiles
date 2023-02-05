@@ -1,13 +1,14 @@
 # gentoo-dotfiles
-### host
-main: rogstrix GL503GE
-second: thinkpadT420
-
 My gentoo configuration per individual hosts + shared.
+### host
+1) main: rogstrix GL503GE
+2) second: thinkpadT420
 
 ## reference guides
-
-## preparation
+[base](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base)
+[mirrors](https://www.gentoo.org/downloads/mirrors)
+[downloads](https://www.gentoo.org/downloads)
+[handbook](https://wiki.gentoo.org/wiki/Handbook:Main_Page)
 ## partition
 ```
 /dev/sda1 /mnt/gentoo/boot/efi
@@ -20,7 +21,7 @@ mkfs.ext4 /dev/sda3
 ```
 ## stage3
 ```
-# wget [link](https://www.gentoo.org/downloads/)
+# wget stage3.tar.xz
 # tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 ```
 ## fstab
@@ -48,14 +49,34 @@ optional, incase it's being installed in a live enviorment
 # test -L /dev/shm && rm /dev/shm && mkdir /dev/shm & mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm 
 & chmod 1777 /dev/shm /run/shm
 ```
-finally:
+chroot
 ```
 # chroot /mnt/gentoo /bin/bash
 # source /etc/profile
 ```
 # install
+```
+```
 ## timezone & locale
 ```
+$ echo "Europe/Bucharest" > /etc/timezone
+$ emerge --config sys-libs/timezone-data
+$ nano -w /etc/locale.gen
+
+en_US ISO-8859-1
+en_US.UTF-8 UTF-8
+
+$ locale-gen
+$ eselect locale list
+Available targets for the LANG variable:
+  [1]   C
+  [2]   en_US
+  [3]   en_US.iso88591
+  [4]   en_US.utf8
+  [5]   POSIX
+$ eselect locale set 4
+$ env-update
+$ source /etc/profile
 ```
 ## portage 
 ```
@@ -83,5 +104,11 @@ MAKEOPTS="-j4"
 LC_MESSAGES=C
 ```
 ## base packages
+```
+# emerge 
+```
 ## tools
+```
+# emerge 
+```
 ![300px-Larry-nefarius-v2 svg](https://user-images.githubusercontent.com/92778316/216841517-fdccdf1d-1e0f-4082-925f-855a9b737d1b.png)
