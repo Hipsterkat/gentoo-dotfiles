@@ -1,6 +1,6 @@
 # gentoo-dotfiles
 My gentoo configuration per individual hosts + shared.
-### host
+### hosts
 1) main: ROGstrix GL503GE
 2) second: Thinkpad T420
 
