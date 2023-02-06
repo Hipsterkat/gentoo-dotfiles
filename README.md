@@ -32,8 +32,6 @@ mkfs.ext4 /dev/sda3
 # UUID=EA01-74C7
 /dev/sda1           	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
 
-tracefs             	/sys/kernel/tracing	tracefs   	rw,nosuid,nodev,noexec	0 0
-
 # UUID=a856413a-8eeb-4325-bb30-836f5561c107
 /dev/sda2           	none      	swap      	defaults  	0 0
 
