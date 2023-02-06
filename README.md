@@ -109,10 +109,8 @@ LC_MESSAGES=C
 ```
 ## base packages
 ```
-# emerge 
 ```
 ## tools
 ```
-# emerge 
 ```
 ![300px-Larry-nefarius-v2 svg](https://user-images.githubusercontent.com/92778316/216841517-fdccdf1d-1e0f-4082-925f-855a9b737d1b.png)
